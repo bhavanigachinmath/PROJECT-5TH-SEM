@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emoji to Text Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="page">
+    <!-- Header -->
+    <header class="header">
+        <h1>Emoji → Text Converter</h1>
+        <p>Convert emojis into meaningful text using NLP</p>
+    </header>
+
+    <!-- Main Card -->
+    <div class="card">
+        <form method="POST">
+            <input type="text" id="emojiInput" name="emoji"
+                   placeholder="Click emojis below 😀🔥📚" required>
+
+            <!-- Emoji Keyboard -->
+            <div class="emoji-keyboard">
+                <span onclick="addEmoji('😀')">😀</span>
+                <span onclick="addEmoji('😂')">😂</span>
+                <span onclick="addEmoji('😊')">😊</span>
+                <span onclick="addEmoji('😍')">😍</span>
+                <span onclick="addEmoji('😢')">😢</span>
+                <span onclick="addEmoji('😭')">😭</span>
+                <span onclick="addEmoji('😡')">😡</span>
+                <span onclick="addEmoji('👍')">👍</span>
+                <span onclick="addEmoji('👎')">👎</span>
+                <span onclick="addEmoji('👏')">👏</span>
+                <span onclick="addEmoji('🙏')">🙏</span>
+                <span onclick="addEmoji('🔥')">🔥</span>
+                <span onclick="addEmoji('⭐')">⭐</span>
+                <span onclick="addEmoji('🎉')">🎉</span>
+                <span onclick="addEmoji('💡')">💡</span>
+                <span onclick="addEmoji('📚')">📚</span>
+                <span onclick="addEmoji('💻')">💻</span>
+                <span onclick="addEmoji('📱')">📱</span>
+                <span onclick="addEmoji('⏰')">⏰</span>
+            </div>
+
+            <button type="submit">Convert Emojis</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Converted Text</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built using Python, Flask & NLTK</p>
+    </footer>
+</div>
+
+<script>
+    function addEmoji(emoji) {
+        document.getElementById("emojiInput").value += emoji;
+    }
+</script>
+<script>
+    function toggleEmojiPalette() {
+        const palette = document.getElementById("emojiPalette");
+        palette.style.display = palette.style.display === "block" ? "none" : "block";
+    }
+
+    function addEmoji(emoji) {
+        document.getElementById("emojiInput").value += emoji;
+    }
+
+    // Close palette when clicking outside
+    document.addEventListener("click", function (event) {
+        const palette = document.getElementById("emojiPalette");
+        const button = document.querySelector(".emoji-btn");
+
+        if (!palette.contains(event.target) && !button.contains(event.target)) {
+            palette.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>

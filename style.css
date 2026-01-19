@@ -1,0 +1,211 @@
+/* Page background */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+/* Page wrapper */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.header h1 {
+    margin-bottom: 8px;
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Card */
+.card {
+    background: white;
+    width: 450px;
+    margin: 30px 0;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Input */
+input {
+    width: 95%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Emoji keyboard */
+.emoji-keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.emoji-keyboard span {
+    font-size: 26px;
+    padding: 6px;
+    cursor: pointer;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.emoji-keyboard span:hover {
+    background: #eef1ff;
+    border-radius: 6px;
+}
+
+/* Button */
+button {
+    margin-top: 12px;
+    padding: 12px 30px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5a6fe0;
+}
+
+/* Result */
+.result {
+    margin-top: 20px;
+    background: #f5f7ff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.result h3 {
+    margin-bottom: 6px;
+}
+
+/* Footer */
+.footer {
+    color: white;
+    font-size: 13px;
+    margin-bottom: 20px;
+    opacity: 0.85;
+}
+/* ===== Animations ===== */
+
+/* Fade + slide on load */
+.header, .card, .footer {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.card {
+    animation-delay: 0.2s;
+}
+
+.footer {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button hover animation */
+button {
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Emoji hover bounce */
+.emoji-keyboard span {
+    transition: transform 0.15s ease;
+}
+
+.emoji-keyboard span:hover {
+    transform: scale(1.25);
+}
+
+/* Result reveal animation */
+.result {
+    animation: resultFade 0.5s ease;
+}
+
+@keyframes resultFade {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Input + emoji button */
+.input-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.emoji-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -40px;
+}
+
+/* Emoji palette */
+.emoji-palette {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 260px;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 5px;
+    z-index: 10;
+}
+
+/* Emoji grid */
+.emoji-palette span {
+    font-size: 24px;
+    padding: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.emoji-palette span:hover {
+    background: #eef1ff;
+    border-radius: 6px;
+}
